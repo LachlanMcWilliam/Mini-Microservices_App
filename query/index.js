@@ -23,11 +23,10 @@ app.post("/events", (req, res) => {
   }
 
   if (type === "CommentCreated") {
-    const { commentId, content, postId } = data;
+    const { id, content, postId } = data;
 
     const post = posts[postId];
-    console.log({ commentId, content });
-    post.comments.push({ commentId, content });
+    post.comments.push({ id, content });
   }
 
   res.send({ status: "ok" });
