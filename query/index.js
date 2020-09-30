@@ -9,8 +9,8 @@ app.use(cors());
 
 const posts = {};
 
-app.post("/posts", (req, res) => {
-  res.send(post);
+app.get("/posts", (req, res) => {
+  res.send(posts);
 });
 
 app.post("/events", (req, res) => {
@@ -23,10 +23,11 @@ app.post("/events", (req, res) => {
   }
 
   if (type === "CommentCreated") {
-    const { id, content, postId } = data;
+    const { commentId, content, postId } = data;
 
     const post = posts[postId];
-    post.comments.push({ id, content });
+    console.log({ commentId, content });
+    post.comments.push({ commentId, content });
   }
 
   res.send({ status: "ok" });
