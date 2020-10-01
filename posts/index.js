@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { randomBytes } = require("crypto");
 const axios = require("axios");
+const { log } = require("console");
 
 const app = express();
 
@@ -39,5 +40,6 @@ app.post("/events", (req, res) => {
 });
 
 app.listen(4000, () => {
+  console.log("This course has been great!");
   console.log("post service is listening on port: 4000");
 });
