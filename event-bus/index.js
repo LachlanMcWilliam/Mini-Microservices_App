@@ -10,7 +10,7 @@ const events = [];
 
 app.post("/events", (req, res) => {
   const event = req.body;
-
+  console.table(event);
   events.push(event);
 
   axios.post("http://posts-clusterip-srv:4000/events", event);

@@ -12,11 +12,11 @@ app.use(bodyParser.json());
 //As this is a project simply for demo purposes, data will simply be stored in memory
 const posts = {};
 
-app.get("/posts", (req, res) => {
-  res.send(posts);
-});
+// app.get("/posts", (req, res) => {
+//   res.send(posts);
+// });
 
-app.post("/posts", async (req, res) => {
+app.post("/posts/create", async (req, res) => {
   const id = randomBytes(4).toString("hex");
   const { title } = req.body;
 
